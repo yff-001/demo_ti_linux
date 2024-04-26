@@ -35,6 +35,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 size:
 	arm-none-eabi-size $(TARGET)
+
 clean:
 	@rm -f ./bin/*.*
 	@rm -f ./obj/*.*
