@@ -1,5 +1,7 @@
 CC = arm-none-eabi-gcc
+
 DEVICE = -D__MSPM0L1306__
+
 CFLAGS = -mcpu=cortex-m0plus -march=armv6-m -mthumb -mfloat-abi=soft $(DEVICE) -I"/home/yff/demo/demo_ti_l1306" -I"/home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include" -I"/home/yff/ti/mspm0_sdk_2_00_00_03/source" -I"/home/yff/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include/newlib-nano" -I"/home/yff/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include" -O2 -ffunction-sections -fdata-sections -g -gdwarf-3 -gstrict-dwarf -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)" -std=c99
 LDFLAGS = $(DEVICE) -O2 -ffunction-sections -fdata-sections -g -gdwarf-3 -gstrict-dwarf -Wall -mthumb -mfloat-abi=soft -Wl,-Map,"demo_l1306.map" -nostartfiles -static -Wl,--gc-sections -L"/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx" -L"/home/yff/ti/mspm0_sdk_2_00_00_03/source" -L"/home/yff/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp" -march=armv6-m -mthumb
 
