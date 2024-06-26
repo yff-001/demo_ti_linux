@@ -151,14 +151,14 @@ BSL_CONFIG       0x0000000041c00100 0x0000000000000080 r
 
 Linker script and memory map
 
+LOAD obj/ti_msp_dl_config.o
 LOAD obj/driver/uart.o
 LOAD obj/driver/gpio.o
 LOAD obj/driver/timer.o
-LOAD obj/handler/communication.o
-LOAD obj/main.o
-LOAD obj/startup_mspm0l130x_gcc.o
 LOAD obj/scheduler.o
-LOAD obj/ti_msp_dl_config.o
+LOAD obj/handler/communication.o
+LOAD obj/startup_mspm0l130x_gcc.o
+LOAD obj/main.o
                 0x0000000000000000                _Min_Heap_Size = 0x0
                 0x0000000000000080                _Min_Stack_Size = 0x80
                 0x0000000000000000                PROVIDE (_intvecs_base_address = DEFINED (_intvecs_base_address)?_intvecs_base_address:0x0)
@@ -175,14 +175,14 @@ LOAD obj/ti_msp_dl_config.o
 .text           0x00000000000000c0      0x738
  CREATE_OBJECT_SYMBOLS
  *(.text)
+ .text          0x00000000000000c0        0x0 obj/ti_msp_dl_config.o
  .text          0x00000000000000c0        0x0 obj/driver/uart.o
  .text          0x00000000000000c0        0x0 obj/driver/gpio.o
  .text          0x00000000000000c0        0x0 obj/driver/timer.o
- .text          0x00000000000000c0        0x0 obj/handler/communication.o
- .text          0x00000000000000c0        0x0 obj/main.o
- .text          0x00000000000000c0        0x0 obj/startup_mspm0l130x_gcc.o
  .text          0x00000000000000c0        0x0 obj/scheduler.o
- .text          0x00000000000000c0        0x0 obj/ti_msp_dl_config.o
+ .text          0x00000000000000c0        0x0 obj/handler/communication.o
+ .text          0x00000000000000c0        0x0 obj/startup_mspm0l130x_gcc.o
+ .text          0x00000000000000c0        0x0 obj/main.o
  .text          0x00000000000000c0        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
  .text          0x00000000000000c0        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
  .text          0x00000000000000c0        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
@@ -198,96 +198,96 @@ LOAD obj/ti_msp_dl_config.o
  .text          0x00000000000001d8        0x0 /home/yff/ti/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
                 0x00000000000001d8                . = ALIGN (0x8)
  *(.text.*)
- .text.SYSCFG_DL_UART_0_init
-                0x00000000000001d8       0x78 obj/driver/uart.o
-                0x00000000000001d8                SYSCFG_DL_UART_0_init
- .text.uart_init
-                0x0000000000000250       0x20 obj/driver/uart.o
-                0x0000000000000250                uart_init
- .text.UART0_IRQHandler
-                0x0000000000000270       0x38 obj/driver/uart.o
-                0x0000000000000270                UART0_IRQHandler
- .text.gpio_init
-                0x00000000000002a8        0x4 obj/driver/gpio.o
-                0x00000000000002a8                gpio_init
- .text.SYSCFG_DL_SYSTICK_init
-                0x00000000000002ac       0x2c obj/driver/timer.o
-                0x00000000000002ac                SYSCFG_DL_SYSTICK_init
- .text.SYSCFG_DL_PERMTICK_init
-                0x00000000000002d8       0x2c obj/driver/timer.o
-                0x00000000000002d8                SYSCFG_DL_PERMTICK_init
- .text.timer_init
-                0x0000000000000304        0xc obj/driver/timer.o
-                0x0000000000000304                timer_init
- .text.TIMG0_IRQHandler
-                0x0000000000000310       0x10 obj/driver/timer.o
-                0x0000000000000310                TIMG0_IRQHandler
- .text.permtick_count
-                0x0000000000000320       0x30 obj/driver/timer.o
-                0x0000000000000320                permtick_count
- .text.has_permtick_elapsed
-                0x0000000000000350       0x10 obj/driver/timer.o
-                0x0000000000000350                has_permtick_elapsed
- .text.TIMG1_IRQHandler
-                0x0000000000000360       0x10 obj/driver/timer.o
-                0x0000000000000360                TIMG1_IRQHandler
- .text.has_systick_elapsed
-                0x0000000000000370       0x10 obj/driver/timer.o
-                0x0000000000000370                has_systick_elapsed
- .text.uart_callback
-                0x0000000000000380       0x2c obj/handler/communication.o
- .text.communication_init
-                0x00000000000003ac       0x10 obj/handler/communication.o
-                0x00000000000003ac                communication_init
- .text.startup.main
-                0x00000000000003bc       0x18 obj/main.o
-                0x00000000000003bc                main
- .text.Default_Handler
-                0x00000000000003d4        0x4 obj/startup_mspm0l130x_gcc.o
-                0x00000000000003d4                TIMG2_IRQHandler
-                0x00000000000003d4                I2C0_IRQHandler
-                0x00000000000003d4                HardFault_Handler
-                0x00000000000003d4                SysTick_Handler
-                0x00000000000003d4                PendSV_Handler
-                0x00000000000003d4                NMI_Handler
-                0x00000000000003d4                I2C1_IRQHandler
-                0x00000000000003d4                UART1_IRQHandler
-                0x00000000000003d4                ADC0_IRQHandler
-                0x00000000000003d4                GROUP1_IRQHandler
-                0x00000000000003d4                GROUP0_IRQHandler
-                0x00000000000003d4                Default_Handler
-                0x00000000000003d4                SVC_Handler
-                0x00000000000003d4                SPI0_IRQHandler
-                0x00000000000003d4                DMA_IRQHandler
-                0x00000000000003d4                TIMG4_IRQHandler
- .text.Reset_Handler
-                0x00000000000003d8       0x78 obj/startup_mspm0l130x_gcc.o
-                0x00000000000003d8                Reset_Handler
- .text.initStub
-                0x0000000000000450        0x4 obj/startup_mspm0l130x_gcc.o
-                0x0000000000000450                _init
-                0x0000000000000450                initStub
- .text.scheduler_init
-                0x0000000000000454       0x1c obj/scheduler.o
-                0x0000000000000454                scheduler_init
- .text.scheduler_high_power
-                0x0000000000000470       0x3c obj/scheduler.o
-                0x0000000000000470                scheduler_high_power
- .text.get_power_mode
-                0x00000000000004ac        0xc obj/scheduler.o
-                0x00000000000004ac                get_power_mode
  .text.SYSCFG_DL_initPower
-                0x00000000000004b8       0x48 obj/ti_msp_dl_config.o
-                0x00000000000004b8                SYSCFG_DL_initPower
+                0x00000000000001d8       0x48 obj/ti_msp_dl_config.o
+                0x00000000000001d8                SYSCFG_DL_initPower
  .text.SYSCFG_DL_GPIO_init
-                0x0000000000000500       0x30 obj/ti_msp_dl_config.o
-                0x0000000000000500                SYSCFG_DL_GPIO_init
+                0x0000000000000220       0x30 obj/ti_msp_dl_config.o
+                0x0000000000000220                SYSCFG_DL_GPIO_init
  .text.SYSCFG_DL_SYSCTL_init
-                0x0000000000000530       0x30 obj/ti_msp_dl_config.o
-                0x0000000000000530                SYSCFG_DL_SYSCTL_init
+                0x0000000000000250       0x30 obj/ti_msp_dl_config.o
+                0x0000000000000250                SYSCFG_DL_SYSCTL_init
  .text.SYSCFG_DL_init
-                0x0000000000000560       0x10 obj/ti_msp_dl_config.o
-                0x0000000000000560                SYSCFG_DL_init
+                0x0000000000000280       0x10 obj/ti_msp_dl_config.o
+                0x0000000000000280                SYSCFG_DL_init
+ .text.SYSCFG_DL_UART_0_init
+                0x0000000000000290       0x78 obj/driver/uart.o
+                0x0000000000000290                SYSCFG_DL_UART_0_init
+ .text.uart_init
+                0x0000000000000308       0x20 obj/driver/uart.o
+                0x0000000000000308                uart_init
+ .text.UART0_IRQHandler
+                0x0000000000000328       0x38 obj/driver/uart.o
+                0x0000000000000328                UART0_IRQHandler
+ .text.gpio_init
+                0x0000000000000360        0x4 obj/driver/gpio.o
+                0x0000000000000360                gpio_init
+ .text.SYSCFG_DL_SYSTICK_init
+                0x0000000000000364       0x2c obj/driver/timer.o
+                0x0000000000000364                SYSCFG_DL_SYSTICK_init
+ .text.SYSCFG_DL_PERMTICK_init
+                0x0000000000000390       0x2c obj/driver/timer.o
+                0x0000000000000390                SYSCFG_DL_PERMTICK_init
+ .text.timer_init
+                0x00000000000003bc        0xc obj/driver/timer.o
+                0x00000000000003bc                timer_init
+ .text.TIMG0_IRQHandler
+                0x00000000000003c8       0x10 obj/driver/timer.o
+                0x00000000000003c8                TIMG0_IRQHandler
+ .text.permtick_count
+                0x00000000000003d8       0x30 obj/driver/timer.o
+                0x00000000000003d8                permtick_count
+ .text.has_permtick_elapsed
+                0x0000000000000408       0x10 obj/driver/timer.o
+                0x0000000000000408                has_permtick_elapsed
+ .text.TIMG1_IRQHandler
+                0x0000000000000418       0x10 obj/driver/timer.o
+                0x0000000000000418                TIMG1_IRQHandler
+ .text.has_systick_elapsed
+                0x0000000000000428       0x10 obj/driver/timer.o
+                0x0000000000000428                has_systick_elapsed
+ .text.scheduler_init
+                0x0000000000000438       0x1c obj/scheduler.o
+                0x0000000000000438                scheduler_init
+ .text.scheduler_high_power
+                0x0000000000000454       0x3c obj/scheduler.o
+                0x0000000000000454                scheduler_high_power
+ .text.get_power_mode
+                0x0000000000000490        0xc obj/scheduler.o
+                0x0000000000000490                get_power_mode
+ .text.uart_callback
+                0x000000000000049c       0x2c obj/handler/communication.o
+ .text.communication_init
+                0x00000000000004c8       0x10 obj/handler/communication.o
+                0x00000000000004c8                communication_init
+ .text.Default_Handler
+                0x00000000000004d8        0x4 obj/startup_mspm0l130x_gcc.o
+                0x00000000000004d8                TIMG2_IRQHandler
+                0x00000000000004d8                I2C0_IRQHandler
+                0x00000000000004d8                HardFault_Handler
+                0x00000000000004d8                SysTick_Handler
+                0x00000000000004d8                PendSV_Handler
+                0x00000000000004d8                NMI_Handler
+                0x00000000000004d8                I2C1_IRQHandler
+                0x00000000000004d8                UART1_IRQHandler
+                0x00000000000004d8                ADC0_IRQHandler
+                0x00000000000004d8                GROUP1_IRQHandler
+                0x00000000000004d8                GROUP0_IRQHandler
+                0x00000000000004d8                Default_Handler
+                0x00000000000004d8                SVC_Handler
+                0x00000000000004d8                SPI0_IRQHandler
+                0x00000000000004d8                DMA_IRQHandler
+                0x00000000000004d8                TIMG4_IRQHandler
+ .text.Reset_Handler
+                0x00000000000004dc       0x78 obj/startup_mspm0l130x_gcc.o
+                0x00000000000004dc                Reset_Handler
+ .text.initStub
+                0x0000000000000554        0x4 obj/startup_mspm0l130x_gcc.o
+                0x0000000000000554                _init
+                0x0000000000000554                initStub
+ .text.startup.main
+                0x0000000000000558       0x18 obj/main.o
+                0x0000000000000558                main
  .text.DL_Common_delayCycles
                 0x0000000000000570        0xc /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
                 0x0000000000000570                DL_Common_delayCycles
@@ -333,7 +333,7 @@ LOAD obj/ti_msp_dl_config.o
  .v4_bx         0x00000000000007f8        0x0 linker stubs
 
 .iplt           0x00000000000007f8        0x0
- .iplt          0x00000000000007f8        0x0 obj/driver/uart.o
+ .iplt          0x00000000000007f8        0x0 obj/ti_msp_dl_config.o
 
 .ramfunc        0x0000000020000000        0x0 load address 0x00000000000007f8
                 0x00000000000007f8                __ramfunct_load__ = LOADADDR (.ramfunc)
@@ -368,7 +368,7 @@ LOAD obj/ti_msp_dl_config.o
  *fill*         0x00000000000008c4        0x4 
 
 .rel.dyn        0x00000000000008c8        0x0
- .rel.iplt      0x00000000000008c8        0x0 obj/driver/uart.o
+ .rel.iplt      0x00000000000008c8        0x0 obj/ti_msp_dl_config.o
 
 .preinit_array  0x00000000000008c8        0x0
                 0x00000000000008c8                PROVIDE (__preinit_array_start = .)
@@ -405,14 +405,14 @@ LOAD obj/ti_msp_dl_config.o
                 0x00000000000008c8                __data_load__ = LOADADDR (.data)
                 0x0000000020000000                __data_start__ = .
  *(.data)
+ .data          0x0000000020000000        0x0 obj/ti_msp_dl_config.o
  .data          0x0000000020000000        0x0 obj/driver/uart.o
  .data          0x0000000020000000        0x0 obj/driver/gpio.o
  .data          0x0000000020000000        0x0 obj/driver/timer.o
- .data          0x0000000020000000        0x0 obj/handler/communication.o
- .data          0x0000000020000000        0x0 obj/main.o
- .data          0x0000000020000000        0x0 obj/startup_mspm0l130x_gcc.o
  .data          0x0000000020000000        0x0 obj/scheduler.o
- .data          0x0000000020000000        0x0 obj/ti_msp_dl_config.o
+ .data          0x0000000020000000        0x0 obj/handler/communication.o
+ .data          0x0000000020000000        0x0 obj/startup_mspm0l130x_gcc.o
+ .data          0x0000000020000000        0x0 obj/main.o
  .data          0x0000000020000000        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
  .data          0x0000000020000000        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
  .data          0x0000000020000000        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
@@ -426,20 +426,20 @@ LOAD obj/ti_msp_dl_config.o
                 0x0000000020000000                __data_end__ = .
 
 .igot.plt       0x0000000020000000        0x0 load address 0x00000000000008c8
- .igot.plt      0x0000000020000000        0x0 obj/driver/uart.o
+ .igot.plt      0x0000000020000000        0x0 obj/ti_msp_dl_config.o
 
 .bss            0x0000000020000000       0x18
                 0x0000000020000000                __bss_start__ = .
  *(.shbss)
  *(.bss)
+ .bss           0x0000000020000000        0x0 obj/ti_msp_dl_config.o
  .bss           0x0000000020000000        0x0 obj/driver/uart.o
  .bss           0x0000000020000000        0x0 obj/driver/gpio.o
  .bss           0x0000000020000000        0x0 obj/driver/timer.o
- .bss           0x0000000020000000        0x0 obj/handler/communication.o
- .bss           0x0000000020000000        0x0 obj/main.o
- .bss           0x0000000020000000        0x0 obj/startup_mspm0l130x_gcc.o
  .bss           0x0000000020000000        0x0 obj/scheduler.o
- .bss           0x0000000020000000        0x0 obj/ti_msp_dl_config.o
+ .bss           0x0000000020000000        0x0 obj/handler/communication.o
+ .bss           0x0000000020000000        0x0 obj/startup_mspm0l130x_gcc.o
+ .bss           0x0000000020000000        0x0 obj/main.o
  .bss           0x0000000020000000        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
  .bss           0x0000000020000000        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
  .bss           0x0000000020000000        0x0 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
@@ -461,11 +461,11 @@ LOAD obj/ti_msp_dl_config.o
                 0x0000000020000010        0x1 obj/driver/timer.o
  .bss.systick_temp
                 0x0000000020000011        0x1 obj/driver/timer.o
- .bss.current_state
-                0x0000000020000012        0x1 obj/handler/communication.o
-                0x0000000020000012                current_state
  .bss.current_power_mode
-                0x0000000020000013        0x1 obj/scheduler.o
+                0x0000000020000012        0x1 obj/scheduler.o
+ .bss.current_state
+                0x0000000020000013        0x1 obj/handler/communication.o
+                0x0000000020000013                current_state
  *(COMMON)
                 0x0000000020000018                . = ALIGN (0x8)
  *fill*         0x0000000020000014        0x4 
@@ -509,54 +509,49 @@ END GROUP
 OUTPUT(bin/app.out elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000    0x2dfd6
- .debug_info    0x0000000000000000     0x4708 obj/driver/uart.o
- .debug_info    0x0000000000004708     0x3f47 obj/driver/gpio.o
- .debug_info    0x000000000000864f     0x42c5 obj/driver/timer.o
- .debug_info    0x000000000000c914     0x3f6f obj/handler/communication.o
- .debug_info    0x0000000000010883     0x3f17 obj/main.o
- .debug_info    0x000000000001479a      0x1b8 obj/startup_mspm0l130x_gcc.o
- .debug_info    0x0000000000014952     0x3f4e obj/scheduler.o
- .debug_info    0x00000000000188a0     0x4485 obj/ti_msp_dl_config.o
- .debug_info    0x000000000001cd25     0x465e /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
- .debug_info    0x0000000000021383     0x756b /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
- .debug_info    0x00000000000288ee     0x56e8 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
+.debug_info     0x0000000000000000    0x31302
+ .debug_info    0x0000000000000000     0x4c17 obj/ti_msp_dl_config.o
+ .debug_info    0x0000000000004c17     0x4e53 obj/driver/uart.o
+ .debug_info    0x0000000000009a6a     0x468a obj/driver/gpio.o
+ .debug_info    0x000000000000e0f4     0x4a08 obj/driver/timer.o
+ .debug_info    0x0000000000012afc     0x4691 obj/scheduler.o
+ .debug_info    0x000000000001718d     0x46b2 obj/handler/communication.o
+ .debug_info    0x000000000001b83f      0x1b8 obj/startup_mspm0l130x_gcc.o
+ .debug_info    0x000000000001b9f7     0x465a obj/main.o
+ .debug_info    0x0000000000020051     0x465e /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
+ .debug_info    0x00000000000246af     0x756b /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
+ .debug_info    0x000000000002bc1a     0x56e8 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
 
-.debug_abbrev   0x0000000000000000     0x19f6
- .debug_abbrev  0x0000000000000000      0x356 obj/driver/uart.o
- .debug_abbrev  0x0000000000000356      0x1be obj/driver/gpio.o
- .debug_abbrev  0x0000000000000514      0x22b obj/driver/timer.o
- .debug_abbrev  0x000000000000073f      0x1de obj/handler/communication.o
- .debug_abbrev  0x000000000000091d      0x18f obj/main.o
- .debug_abbrev  0x0000000000000aac       0xd6 obj/startup_mspm0l130x_gcc.o
- .debug_abbrev  0x0000000000000b82      0x1b3 obj/scheduler.o
- .debug_abbrev  0x0000000000000d35      0x291 obj/ti_msp_dl_config.o
- .debug_abbrev  0x0000000000000fc6      0x1e2 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
- .debug_abbrev  0x00000000000011a8      0x441 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
- .debug_abbrev  0x00000000000015e9      0x40d /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
-
-.debug_loc      0x0000000000000000     0x3362
- .debug_loc     0x0000000000000000       0x53 obj/driver/uart.o
- .debug_loc     0x0000000000000053     0x285e /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
- .debug_loc     0x00000000000028b1      0xab1 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
+.debug_abbrev   0x0000000000000000     0x1c00
+ .debug_abbrev  0x0000000000000000      0x2e2 obj/ti_msp_dl_config.o
+ .debug_abbrev  0x00000000000002e2      0x389 obj/driver/uart.o
+ .debug_abbrev  0x000000000000066b      0x20f obj/driver/gpio.o
+ .debug_abbrev  0x000000000000087a      0x26d obj/driver/timer.o
+ .debug_abbrev  0x0000000000000ae7      0x204 obj/scheduler.o
+ .debug_abbrev  0x0000000000000ceb      0x22f obj/handler/communication.o
+ .debug_abbrev  0x0000000000000f1a       0xd6 obj/startup_mspm0l130x_gcc.o
+ .debug_abbrev  0x0000000000000ff0      0x1e0 obj/main.o
+ .debug_abbrev  0x00000000000011d0      0x1e2 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
+ .debug_abbrev  0x00000000000013b2      0x441 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
+ .debug_abbrev  0x00000000000017f3      0x40d /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
 
 .debug_aranges  0x0000000000000000      0x3b8
  .debug_aranges
-                0x0000000000000000       0x38 obj/driver/uart.o
+                0x0000000000000000       0x38 obj/ti_msp_dl_config.o
  .debug_aranges
-                0x0000000000000038       0x28 obj/driver/gpio.o
+                0x0000000000000038       0x38 obj/driver/uart.o
  .debug_aranges
-                0x0000000000000060       0x60 obj/driver/timer.o
+                0x0000000000000070       0x28 obj/driver/gpio.o
  .debug_aranges
-                0x00000000000000c0       0x28 obj/handler/communication.o
+                0x0000000000000098       0x60 obj/driver/timer.o
  .debug_aranges
-                0x00000000000000e8       0x20 obj/main.o
+                0x00000000000000f8       0x30 obj/scheduler.o
  .debug_aranges
-                0x0000000000000108       0x30 obj/startup_mspm0l130x_gcc.o
+                0x0000000000000128       0x28 obj/handler/communication.o
  .debug_aranges
-                0x0000000000000138       0x30 obj/scheduler.o
+                0x0000000000000150       0x30 obj/startup_mspm0l130x_gcc.o
  .debug_aranges
-                0x0000000000000168       0x38 obj/ti_msp_dl_config.o
+                0x0000000000000180       0x20 obj/main.o
  .debug_aranges
                 0x00000000000001a0       0x20 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
  .debug_aranges
@@ -565,65 +560,65 @@ LOAD linker stubs
                 0x0000000000000320       0x98 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
 
 .debug_ranges   0x0000000000000000      0xd08
- .debug_ranges  0x0000000000000000       0x70 obj/driver/uart.o
- .debug_ranges  0x0000000000000070       0x30 obj/driver/gpio.o
- .debug_ranges  0x00000000000000a0       0x50 obj/driver/timer.o
- .debug_ranges  0x00000000000000f0       0x18 obj/handler/communication.o
- .debug_ranges  0x0000000000000108       0x10 obj/main.o
- .debug_ranges  0x0000000000000118       0x20 obj/startup_mspm0l130x_gcc.o
- .debug_ranges  0x0000000000000138       0x20 obj/scheduler.o
- .debug_ranges  0x0000000000000158      0x118 obj/ti_msp_dl_config.o
+ .debug_ranges  0x0000000000000000      0x118 obj/ti_msp_dl_config.o
+ .debug_ranges  0x0000000000000118       0x70 obj/driver/uart.o
+ .debug_ranges  0x0000000000000188       0x30 obj/driver/gpio.o
+ .debug_ranges  0x00000000000001b8       0x50 obj/driver/timer.o
+ .debug_ranges  0x0000000000000208       0x20 obj/scheduler.o
+ .debug_ranges  0x0000000000000228       0x18 obj/handler/communication.o
+ .debug_ranges  0x0000000000000240       0x20 obj/startup_mspm0l130x_gcc.o
+ .debug_ranges  0x0000000000000260       0x10 obj/main.o
  .debug_ranges  0x0000000000000270       0x10 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
  .debug_ranges  0x0000000000000280      0x718 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
  .debug_ranges  0x0000000000000998      0x370 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
 
-.debug_line     0x0000000000000000     0x4e4f
- .debug_line    0x0000000000000000      0x571 obj/driver/uart.o
- .debug_line    0x0000000000000571      0x38e obj/driver/gpio.o
- .debug_line    0x00000000000008ff      0x503 obj/driver/timer.o
- .debug_line    0x0000000000000e02      0x377 obj/handler/communication.o
- .debug_line    0x0000000000001179      0x338 obj/main.o
- .debug_line    0x00000000000014b1      0x175 obj/startup_mspm0l130x_gcc.o
- .debug_line    0x0000000000001626      0x3c7 obj/scheduler.o
- .debug_line    0x00000000000019ed      0x603 obj/ti_msp_dl_config.o
- .debug_line    0x0000000000001ff0      0x3d7 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
- .debug_line    0x00000000000023c7     0x1c25 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
- .debug_line    0x0000000000003fec      0xe63 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
+.debug_line     0x0000000000000000     0x4f27
+ .debug_line    0x0000000000000000      0x627 obj/ti_msp_dl_config.o
+ .debug_line    0x0000000000000627      0x58f obj/driver/uart.o
+ .debug_line    0x0000000000000bb6      0x3ac obj/driver/gpio.o
+ .debug_line    0x0000000000000f62      0x521 obj/driver/timer.o
+ .debug_line    0x0000000000001483      0x3e5 obj/scheduler.o
+ .debug_line    0x0000000000001868      0x395 obj/handler/communication.o
+ .debug_line    0x0000000000001bfd      0x175 obj/startup_mspm0l130x_gcc.o
+ .debug_line    0x0000000000001d72      0x356 obj/main.o
+ .debug_line    0x00000000000020c8      0x3d7 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
+ .debug_line    0x000000000000249f     0x1c25 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
+ .debug_line    0x00000000000040c4      0xe63 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
 
-.debug_str      0x0000000000000000     0x4454
- .debug_str     0x0000000000000000     0x1c03 obj/driver/uart.o
-                                       0x1ce2 (size before relaxing)
- .debug_str     0x0000000000001c03       0x45 obj/driver/gpio.o
-                                       0x136f (size before relaxing)
- .debug_str     0x0000000000001c48      0x4c7 obj/driver/timer.o
-                                       0x1821 (size before relaxing)
- .debug_str     0x000000000000210f       0x66 obj/handler/communication.o
-                                       0x13a7 (size before relaxing)
- .debug_str     0x0000000000002175       0x3d obj/main.o
-                                       0x1367 (size before relaxing)
- .debug_str     0x00000000000021b2       0xf3 obj/startup_mspm0l130x_gcc.o
+.debug_str      0x0000000000000000     0x44d3
+ .debug_str     0x0000000000000000     0x1a23 obj/ti_msp_dl_config.o
+                                       0x1ae5 (size before relaxing)
+ .debug_str     0x0000000000001a23      0x9ac obj/driver/uart.o
+                                       0x1e90 (size before relaxing)
+ .debug_str     0x00000000000023cf       0x3b obj/driver/gpio.o
+                                       0x14e3 (size before relaxing)
+ .debug_str     0x000000000000240a      0x4bf obj/driver/timer.o
+                                       0x1995 (size before relaxing)
+ .debug_str     0x00000000000028c9       0x83 obj/scheduler.o
+                                       0x1521 (size before relaxing)
+ .debug_str     0x000000000000294c       0x66 obj/handler/communication.o
+                                       0x151b (size before relaxing)
+ .debug_str     0x00000000000029b2       0xf3 obj/startup_mspm0l130x_gcc.o
                                         0x253 (size before relaxing)
- .debug_str     0x00000000000022a5       0x56 obj/scheduler.o
-                                       0x13ad (size before relaxing)
- .debug_str     0x00000000000022fb      0x52f obj/ti_msp_dl_config.o
-                                       0x1889 (size before relaxing)
- .debug_str     0x000000000000282a      0x3c2 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
+ .debug_str     0x0000000000002aa5       0x10 obj/main.o
+                                       0x14db (size before relaxing)
+ .debug_str     0x0000000000002ab5      0x1b6 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
                                        0x1586 (size before relaxing)
- .debug_str     0x0000000000002bec     0x13d8 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
+ .debug_str     0x0000000000002c6b     0x13d8 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
                                        0x2bef (size before relaxing)
- .debug_str     0x0000000000003fc4      0x490 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
+ .debug_str     0x0000000000004043      0x490 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
                                        0x1efa (size before relaxing)
 
 .comment        0x0000000000000000       0xc2
- .comment       0x0000000000000000       0x49 obj/driver/uart.o
+ .comment       0x0000000000000000       0x49 obj/ti_msp_dl_config.o
                                          0x4a (size before relaxing)
+ .comment       0x0000000000000049       0x4a obj/driver/uart.o
  .comment       0x0000000000000049       0x4a obj/driver/gpio.o
  .comment       0x0000000000000049       0x4a obj/driver/timer.o
- .comment       0x0000000000000049       0x4a obj/handler/communication.o
- .comment       0x0000000000000049       0x4a obj/main.o
- .comment       0x0000000000000049       0x4a obj/startup_mspm0l130x_gcc.o
  .comment       0x0000000000000049       0x4a obj/scheduler.o
- .comment       0x0000000000000049       0x4a obj/ti_msp_dl_config.o
+ .comment       0x0000000000000049       0x4a obj/handler/communication.o
+ .comment       0x0000000000000049       0x4a obj/startup_mspm0l130x_gcc.o
+ .comment       0x0000000000000049       0x4a obj/main.o
  .comment       0x0000000000000049       0x79 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
                                          0x7a (size before relaxing)
  .comment       0x00000000000000c2       0x7a /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
@@ -632,21 +627,21 @@ LOAD linker stubs
 .ARM.attributes
                 0x0000000000000000       0x2c
  .ARM.attributes
-                0x0000000000000000       0x2c obj/driver/uart.o
+                0x0000000000000000       0x2c obj/ti_msp_dl_config.o
  .ARM.attributes
-                0x000000000000002c       0x2c obj/driver/gpio.o
+                0x000000000000002c       0x2c obj/driver/uart.o
  .ARM.attributes
-                0x0000000000000058       0x2c obj/driver/timer.o
+                0x0000000000000058       0x2c obj/driver/gpio.o
  .ARM.attributes
-                0x0000000000000084       0x2c obj/handler/communication.o
+                0x0000000000000084       0x2c obj/driver/timer.o
  .ARM.attributes
-                0x00000000000000b0       0x2c obj/main.o
+                0x00000000000000b0       0x2c obj/scheduler.o
  .ARM.attributes
-                0x00000000000000dc       0x2c obj/startup_mspm0l130x_gcc.o
+                0x00000000000000dc       0x2c obj/handler/communication.o
  .ARM.attributes
-                0x0000000000000108       0x2c obj/scheduler.o
+                0x0000000000000108       0x2c obj/startup_mspm0l130x_gcc.o
  .ARM.attributes
-                0x0000000000000134       0x2c obj/ti_msp_dl_config.o
+                0x0000000000000134       0x2c obj/main.o
  .ARM.attributes
                 0x0000000000000160       0x2b /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
  .ARM.attributes
@@ -665,14 +660,14 @@ LOAD linker stubs
                 0x0000000000000275       0x2c /home/yff/ti/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
 
 .debug_frame    0x0000000000000000      0x878
- .debug_frame   0x0000000000000000       0x74 obj/driver/uart.o
- .debug_frame   0x0000000000000074       0x30 obj/driver/gpio.o
- .debug_frame   0x00000000000000a4       0xb8 obj/driver/timer.o
- .debug_frame   0x000000000000015c       0x38 obj/handler/communication.o
- .debug_frame   0x0000000000000194       0x28 obj/main.o
- .debug_frame   0x00000000000001bc       0x48 obj/startup_mspm0l130x_gcc.o
- .debug_frame   0x0000000000000204       0x50 obj/scheduler.o
- .debug_frame   0x0000000000000254       0x64 obj/ti_msp_dl_config.o
+ .debug_frame   0x0000000000000000       0x64 obj/ti_msp_dl_config.o
+ .debug_frame   0x0000000000000064       0x74 obj/driver/uart.o
+ .debug_frame   0x00000000000000d8       0x30 obj/driver/gpio.o
+ .debug_frame   0x0000000000000108       0xb8 obj/driver/timer.o
+ .debug_frame   0x00000000000001c0       0x50 obj/scheduler.o
+ .debug_frame   0x0000000000000210       0x38 obj/handler/communication.o
+ .debug_frame   0x0000000000000248       0x48 obj/startup_mspm0l130x_gcc.o
+ .debug_frame   0x0000000000000290       0x28 obj/main.o
  .debug_frame   0x00000000000002b8       0x20 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_common.o)
  .debug_frame   0x00000000000002d8      0x34c /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
  .debug_frame   0x0000000000000624      0x1a4 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
@@ -680,3 +675,8 @@ LOAD linker stubs
  .debug_frame   0x00000000000007e8       0x2c /home/yff/ti/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
  .debug_frame   0x0000000000000814       0x34 /home/yff/ti/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memcpy-stub.o)
  .debug_frame   0x0000000000000848       0x30 /home/yff/ti/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+
+.debug_loc      0x0000000000000000     0x3362
+ .debug_loc     0x0000000000000000       0x53 obj/driver/uart.o
+ .debug_loc     0x0000000000000053     0x285e /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_timer.o)
+ .debug_loc     0x00000000000028b1      0xab1 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a(dl_uart.o)
