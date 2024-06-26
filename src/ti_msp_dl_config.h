@@ -1,7 +1,7 @@
 #ifndef ti_msp_dl_config_h
 #define ti_msp_dl_config_h
 
-#define CONFIG_MSPM0C110X
+#define CONFIG_MSPM0L130X
 
 #if defined(__ti_version__) || defined(__TI_COMPILER_VERSION__)
 #define SYSCONFIG_WEAK __attribute__((weak))
@@ -33,40 +33,20 @@ extern "C" {
 #define POWER_STARTUP_DELAY                                                (16)
 
 
-#define CPUCLK_FREQ                                                     24000000
-
-
-
-/* Defines for PWM_0 */
-#define PWM_0_INST                                                         TIMA0
-#define PWM_0_INST_IRQHandler                                   TIMA0_IRQHandler
-#define PWM_0_INST_INT_IRQN                                     (TIMA0_INT_IRQn)
-#define PWM_0_INST_CLK_FREQ                                             12000000
-/* GPIO defines for channel 0 */
-#define GPIO_PWM_0_C0_PORT                                                 GPIOA
-#define GPIO_PWM_0_C0_PIN                                          DL_GPIO_PIN_2
-#define GPIO_PWM_0_C0_IOMUX                                       (IOMUX_PINCM3)
-#define GPIO_PWM_0_C0_IOMUX_FUNC                      IOMUX_PINCM3_PF_TIMA0_CCP0
-#define GPIO_PWM_0_C0_IDX                                    DL_TIMER_CC_0_INDEX
-/* GPIO defines for channel 0 */
-#define GPIO_PWM_0_C0_CMPL_PORT                                            GPIOA
-#define GPIO_PWM_0_C0_CMPL_PIN                                    DL_GPIO_PIN_17
-#define GPIO_PWM_0_C0_CMPL_IOMUX                                 (IOMUX_PINCM18)
-#define GPIO_PWM_0_C0_CMPL_IOMUX_FUNC           IOMUX_PINCM18_PF_TIMA0_CCP0_CMPL
-
+#define CPUCLK_FREQ                                                     32000000
 
 
 
 /* Defines for SYSTICK */
-#define SYSTICK_INST                                                    (TIMG14)
-#define SYSTICK_INST_IRQHandler                                TIMG14_IRQHandler
-#define SYSTICK_INST_INT_IRQN                                  (TIMG14_INT_IRQn)
-#define SYSTICK_INST_LOAD_VALUE                                           (159U)
+#define SYSTICK_INST                                                     (TIMG14)
+#define SYSTICK_INST_IRQHandler                                 TIMG1_IRQHandler
+#define SYSTICK_INST_INT_IRQN                                   (TIMG1_INT_IRQn)
+#define SYSTICK_INST_LOAD_VALUE                                             (0U)
 /* Defines for PERMTICK */
 #define PERMTICK_INST                                                    (TIMG8)
-#define PERMTICK_INST_IRQHandler                                TIMG8_IRQHandler
-#define PERMTICK_INST_INT_IRQN                                  (TIMG8_INT_IRQn)
-#define PERMTICK_INST_LOAD_VALUE                                        (15999U)
+#define PERMTICK_INST_IRQHandler                                TIMG0_IRQHandler
+#define PERMTICK_INST_INT_IRQN                                  (TIMG0_INT_IRQn)
+#define PERMTICK_INST_LOAD_VALUE                                            (0U)
 
 
 
@@ -76,15 +56,15 @@ extern "C" {
 #define UART_0_INST_INT_IRQN                                      UART0_INT_IRQn
 #define GPIO_UART_0_RX_PORT                                                GPIOA
 #define GPIO_UART_0_TX_PORT                                                GPIOA
-#define GPIO_UART_0_RX_PIN                                        DL_GPIO_PIN_26
-#define GPIO_UART_0_TX_PIN                                        DL_GPIO_PIN_27
-#define GPIO_UART_0_IOMUX_RX                                     (IOMUX_PINCM27)
-#define GPIO_UART_0_IOMUX_TX                                     (IOMUX_PINCM28)
-#define GPIO_UART_0_IOMUX_RX_FUNC                      IOMUX_PINCM27_PF_UART0_RX
-#define GPIO_UART_0_IOMUX_TX_FUNC                      IOMUX_PINCM28_PF_UART0_TX
-#define UART_0_BAUD_RATE                                                (250000)
-#define UART_0_IBRD_24_MHZ_250000_BAUD                                       (6)
-#define UART_0_FBRD_24_MHZ_250000_BAUD                                       (0)
+#define GPIO_UART_0_RX_PIN                                        DL_GPIO_PIN_18
+#define GPIO_UART_0_TX_PIN                                        DL_GPIO_PIN_17
+#define GPIO_UART_0_IOMUX_RX                                     (IOMUX_PINCM19)
+#define GPIO_UART_0_IOMUX_TX                                     (IOMUX_PINCM18)
+#define GPIO_UART_0_IOMUX_RX_FUNC                      IOMUX_PINCM19_PF_UART0_RX
+#define GPIO_UART_0_IOMUX_TX_FUNC                      IOMUX_PINCM18_PF_UART0_TX
+#define UART_0_BAUD_RATE                                                  (9600)
+#define UART_0_IBRD_32_MHZ_9600_BAUD                                       (208)
+#define UART_0_FBRD_32_MHZ_9600_BAUD                                        (21)
 
 
 
@@ -93,9 +73,9 @@ extern "C" {
 /* Port definition for Pin Group LED */
 #define LED_PORT                                                         (GPIOA)
 
-/* Defines for PIN_0: GPIOA.4 with pinCMx 5 on package pin 9 */
-#define LED_PIN_0_PIN                                            (DL_GPIO_PIN_4)
-#define LED_PIN_0_IOMUX                                           (IOMUX_PINCM5)
+/* Defines for PIN_0: GPIOA.0 with pinCMx 1 on package pin 1 */
+#define LED_PIN_0_PIN                                            (DL_GPIO_PIN_0)
+#define LED_PIN_0_IOMUX                                           (IOMUX_PINCM1)
 
 /* clang-format on */
 
@@ -103,7 +83,6 @@ void SYSCFG_DL_init(void);
 void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
-void SYSCFG_DL_PWM_0_init(void);
 void SYSCFG_DL_SYSTICK_init(void);
 void SYSCFG_DL_PERMTICK_init(void);
 void SYSCFG_DL_UART_0_init(void);
