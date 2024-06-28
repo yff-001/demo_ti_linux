@@ -3,8 +3,28 @@ CC = arm-none-eabi-gcc
 HOME_DIR := $(HOME)
 DEVICE = -D__MSPM0L1306__
 
-CFLAGS = -mcpu=cortex-m0plus -march=armv6-m -mthumb -mfloat-abi=soft $(DEVICE) -I"$(HOME_DIR)/demo/demo_ti_l1306" -I"$(HOME)/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include" -I"$(HOME)/ti/mspm0_sdk_2_00_00_03/source" -I"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include/newlib-nano" -I"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include" -O2 -ffunction-sections -fdata-sections -g -gdwarf-3 -gstrict-dwarf -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)" -std=c99
-LDFLAGS = $(DEVICE) -O2 -ffunction-sections -fdata-sections -g -gdwarf-3 -gstrict-dwarf -Wall -mthumb -mfloat-abi=soft -Wl,-Map,"demo_l1306.map" -nostartfiles -static -Wl,--gc-sections -L"$(HOME)/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx" -L"$(HOME)/ti/mspm0_sdk_2_00_00_03/source" -L"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp" -march=armv6-m -mthumb
+CFLAGS = -mcpu=cortex-m0plus -march=armv6-m -mthumb -mfloat-abi=soft \
+$(DEVICE) \
+-I"$(HOME_DIR)/demo/demo_ti_l1306" \
+-I"$(HOME)/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include" \
+-I"$(HOME)/ti/mspm0_sdk_2_00_00_03/source" \
+-I"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include/newlib-nano" \
+-I"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include" \
+-O2 \
+-ffunction-sections \
+-fdata-sections \
+-g -gdwarf-3 -gstrict-dwarf -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)" \
+-std=c99
+
+LDFLAGS = $(DEVICE) \
+-O2 \
+-ffunction-sections \
+-fdata-sections \
+-g -gdwarf-3 -gstrict-dwarf -Wall -mthumb -mfloat-abi=soft -Wl,-Map,"demo_l1306.map" -nostartfiles -static -Wl,--gc-sections \
+-L"$(HOME)/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx" \
+-L"$(HOME)/ti/mspm0_sdk_2_00_00_03/source" \
+-L"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp" \
+-march=armv6-m -mthumb
 
 ORDERED_OBJS += \
 -Wl,-T"./src/mspm0l1306.lds" \
@@ -24,6 +44,9 @@ OBJ_DIR = obj
 SRC = $(shell find $(SRC_DIR) -name *.c)
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
+TOTAL_FLASH = 65528
+TOTAL_SRAM = 4096
+
 TARGET = $(BIN_DIR)/app.out
 
 all: $(TARGET)
@@ -39,8 +62,26 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
+# size: $(TARGET)
+# 	arm-none-eabi-size $(TARGET)
+
 size: $(TARGET)
-	arm-none-eabi-size $(TARGET)
+	@echo "Memory uage for $(TARGET):"
+	@arm-none-eabi-objdump -h $(TARGET) | awk 'BEGIN { flash=0; sram=0; } \
+	/\.text/ { flash += strtonum("0x" $$3); } \
+	/\.rodata/ { flash += strtonum("0x" $$3); } \
+	/\.data/ { flash += strtonum("0x" $$3); sram += strtonum("0x" $$3); } \
+	/\.bss/ { sram += strtonum("0x" $$3); } \
+	END { \
+	flash_pct = (flash / $(TOTAL_FLASH)) * 100; \
+	sram_pct = (sram / $(TOTAL_SRAM)) * 100; \
+	flash_str = sprintf("> FLASH    %d/%d (%.2f%%)", flash, $(TOTAL_FLASH), flash_pct); \
+	sram_str = sprintf("> SRAM %d/%d (%.2f%%)", sram, $(TOTAL_SRAM), sram_pct); \
+	max_len = length(flash_str); \
+	padding = max_len - length(sram_str); \
+	printf "%s\n", flash_str; \
+	printf "%*s%s\n", padding, "", sram_str; \
+}'
 
 clean:
 	@rm -rf ./bin/*
