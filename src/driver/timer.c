@@ -13,7 +13,7 @@ void timer_init() {
     SYSCFG_DL_SYSTICK_init();
     SYSCFG_DL_PERMTICK_init();
 
-    // NVIC_EnableIRQ(PERMTICK_INST_INT_IRQN);
+    NVIC_EnableIRQ(PERMTICK_INST_INT_IRQN);
 }
 
 /*
@@ -53,24 +53,24 @@ SYSCONFIG_WEAK void SYSCFG_DL_SYSTICK_init(void) {
 }
 
 /*
- * Timer clock configuration to be sourced by BUSCLK /  (32000000 Hz)
+ * Timer clock configuration to be sourced by LFCLK /  (32768 Hz)
  * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
- *   32000000 Hz = 32000000 Hz / (1 * (0 + 1))
+ *   32768 Hz = 32768 Hz / (1 * (0 + 1))
  */
 static const DL_TimerG_ClockConfig gPERMTICKClockConfig = {
-    .clockSel    = DL_TIMER_CLOCK_BUSCLK,
+    .clockSel    = DL_TIMER_CLOCK_LFCLK,
     .divideRatio = DL_TIMER_CLOCK_DIVIDE_1,
     .prescale    = 0U,
 };
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * PERMTICK_INST_LOAD_VALUE = (0 ms * 32000000 Hz) - 1
+ * PERMTICK_INST_LOAD_VALUE = (1000 ms * 32768 Hz) - 1
  */
 static const DL_TimerG_TimerConfig gPERMTICKTimerConfig = {
     .period     = PERMTICK_INST_LOAD_VALUE,
-    .timerMode  = DL_TIMER_TIMER_MODE_ONE_SHOT,
-    .startTimer = DL_TIMER_STOP,
+    .timerMode  = DL_TIMER_TIMER_MODE_PERIODIC,
+    .startTimer = DL_TIMER_START,
 };
 
 SYSCONFIG_WEAK void SYSCFG_DL_PERMTICK_init(void) {
@@ -80,12 +80,8 @@ SYSCONFIG_WEAK void SYSCFG_DL_PERMTICK_init(void) {
 
     DL_TimerG_initTimerMode(PERMTICK_INST,
         (DL_TimerG_TimerConfig *) &gPERMTICKTimerConfig);
+    DL_TimerG_enableInterrupt(PERMTICK_INST , DL_TIMERG_INTERRUPT_LOAD_EVENT);
     DL_TimerG_enableClock(PERMTICK_INST);
-
-
-
-
-
 }
 
 void PERMTICK_INST_IRQHandler() {

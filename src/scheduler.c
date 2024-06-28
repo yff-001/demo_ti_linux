@@ -27,7 +27,7 @@ void scheduler_high_power() {
 
         if (has_permtick_elapsed() == 1) {
             permtick_count();
-            // DL_GPIO_togglePins(LED_PORT, LED_PIN_0_PIN);
+            gpio_toggle();
         }
 
         if (has_systick_elapsed() == 1) {

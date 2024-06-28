@@ -38,15 +38,15 @@ extern "C" {
 
 
 /* Defines for SYSTICK */
-#define SYSTICK_INST                                                     (TIMG0)
+#define SYSTICK_INST                                                     (TIMG1)
 #define SYSTICK_INST_IRQHandler                                 TIMG1_IRQHandler
 #define SYSTICK_INST_INT_IRQN                                   (TIMG1_INT_IRQn)
 #define SYSTICK_INST_LOAD_VALUE                                             (0U)
 /* Defines for PERMTICK */
-#define PERMTICK_INST                                                    (TIMG1)
+#define PERMTICK_INST                                                    (TIMG0)
 #define PERMTICK_INST_IRQHandler                                TIMG0_IRQHandler
 #define PERMTICK_INST_INT_IRQN                                  (TIMG0_INT_IRQn)
-#define PERMTICK_INST_LOAD_VALUE                                            (0U)
+#define PERMTICK_INST_LOAD_VALUE                                        (32767U)
 
 
 
