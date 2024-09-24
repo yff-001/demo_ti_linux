@@ -36,6 +36,14 @@ void scheduler_high_power() {
     }
 }
 
+void scheduler_low_power() {
+    //
+}
+
+void scheduler_power_down() {
+    //
+}
+
 enum power_mode_t get_power_mode() {
     return current_power_mode;
 }

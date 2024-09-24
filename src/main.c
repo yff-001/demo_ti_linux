@@ -16,6 +16,14 @@ int main(void)
             scheduler_high_power();
             break;
 
+            case LOW_POWER:
+            scheduler_low_power();
+            break;
+
+            case POWER_DOWN:
+            scheduler_power_down();
+            break;
+
             default:
             break;
         }

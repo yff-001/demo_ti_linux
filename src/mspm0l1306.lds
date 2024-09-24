@@ -2,10 +2,23 @@
 _Min_Heap_Size  = 0;      /* required amount of heap  */
 _Min_Stack_Size = 0x80; /* required amount of stack */
 
+FLASH_SIZE = 0x0000FFF8;
+
+PARAM_SOFTWARE_SIZE = 0x80;
+PARAM_ERROR_SIZE = 0x80;
+PARAM_ASSEMBLY_SIZE = 0x80;
+PARAM_EOL_SIZE = 0x80;
+PARAM_PRODUCTION_SIZE = 0x80;
+PARAM_USER_SIZE = 0x80;
+PARAM_DEVICE_SIZE = 0x100;
+
+NVM_SIZE = PARAM_SOFTWARE_SIZE + PARAM_ERROR_SIZE + PARAM_ASSEMBLY_SIZE + PARAM_EOL_SIZE + PARAM_PRODUCTION_SIZE + PARAM_USER_SIZE + PARAM_DEVICE_SIZE;
+
 /* Specify the memory areas */
 MEMORY
 {
-    FLASH           (RX)  : ORIGIN = 0x00000000, LENGTH = 0x0000FFF8
+    FLASH           (RX)  : ORIGIN = 0x00000000, LENGTH = FLASH_SIZE - NVM_SIZE
+    NVM             (R)   : ORIGIN = FLASH_SIZE - NVM_SIZE, LENGTH = NVM_SIZE
     SRAM            (RWX) : ORIGIN = 0x20000000, LENGTH = 0x00001000
     BCR_CONFIG      (R)   : ORIGIN = 0x41C00000, LENGTH = 0x00000080
     BSL_CONFIG      (R)   : ORIGIN = 0x41C00100, LENGTH = 0x00000080
@@ -165,4 +178,60 @@ SECTIONS
 
     __StackTop = ORIGIN(REGION_STACK) + LENGTH(REGION_STACK);
     PROVIDE(__stack = __StackTop);
+
+    .param_software :
+    {
+        _param_software = .;
+        FILL(0xFF);
+        KEEP(*(.param_software))
+        . += PARAM_SOFTWARE_SIZE - .;
+    } > NVM
+
+    .param_error :
+    {
+        _param_error = .;
+        FILL(0xFF);
+        KEEP(*(.param_error))
+        . += PARAM_ERROR_SIZE - .;
+    } > NVM
+
+    .param_assembly :
+    {
+        _param_assembly = .;
+        FILL(0xFF);
+        KEEP(*(.param_assembly))
+        . += PARAM_ASSEMBLY_SIZE - .;
+    } > NVM
+
+    .param_eol :
+    {
+        _param_eol = .;
+        FILL(0xFF);
+        KEEP(*(.param_eol))
+        . += PARAM_EOL_SIZE - .;
+    } > NVM
+
+    .param_production :
+    {
+        _param_production = .;
+        FILL(0xFF);
+        KEEP(*(.param_production))
+        . += PARAM_PRODUCTION_SIZE - .;
+    } > NVM
+
+    .param_user :
+    {
+        _param_user = .;
+        FILL(0xFF);
+        KEEP(*(.param_user))
+        . += PARAM_USER_SIZE - .;
+    } > NVM
+
+    .param_device :
+    {
+        _param_device = .;
+        FILL(0xFF);
+        KEEP(*(.param_device))
+        . += PARAM_DEVICE_SIZE - .;
+    } > NVM
 }
