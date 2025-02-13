@@ -27,7 +27,7 @@ LDFLAGS = $(DEVICE) \
 -march=armv6-m -mthumb
 
 ORDERED_OBJS += \
--Wl,-T"./src/mspm0l1306.lds" \
+-Wl,-T"../src/mspm0l1306.lds" \
 "$(HOME)/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a" \
 -l:driverlib.a \
 -lgcc \
@@ -35,9 +35,9 @@ ORDERED_OBJS += \
 -lm \
 -lnosys \
 
-BIN_DIR = bin
-SRC_DIR = src
-OBJ_DIR = obj
+BIN_DIR = ./bin
+SRC_DIR = ../src
+OBJ_DIR = ./obj
 
 # SRC = $(wildcard $(SRC_DIR)/*.c)
 # OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
