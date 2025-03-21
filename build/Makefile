@@ -49,6 +49,13 @@ TOTAL_SRAM = 4096
 
 TARGET = $(BIN_DIR)/app.out
 
+# Define paths to OpenOCD configuration files
+OPENOCD_INTERFACE = /usr/local/share/openocd/scripts/interface/xds110.cfg
+OPENOCD_TARGET = /usr/local/share/openocd/scripts/target/ti_mspm0.cfg
+
+# OpenOCD command to start the server
+OPENOCD_CMD = openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c "adapter speed 500"
+
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
@@ -82,6 +89,11 @@ size: $(TARGET)
 	printf "%s\n", flash_str; \
 	printf "%*s%s\n", padding, "", sram_str; \
 }'
+
+# Target to upload the binary to the MCU
+upload: $(TARGET)
+	@echo "Uploading $(BINARY) to the MCU..."
+	@$(OPENOCD_CMD) -c "init" -c "reset init" -c "flash write_image erase $(TARGET) 0x00000000" -c "reset run" -c "shutdown"
 
 clean:
 	@rm -rf ./bin/*

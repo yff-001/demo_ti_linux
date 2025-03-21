@@ -67,7 +67,8 @@ obj/main.o: ../src/main.c ../src/ti_msp_dl_config.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_vref.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_wwdt.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_interrupt.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h
+ /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h \
+ ../src/scheduler.h
 ../src/ti_msp_dl_config.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/msp.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/DeviceFamily.h:
@@ -138,3 +139,4 @@ obj/main.o: ../src/main.c ../src/ti_msp_dl_config.h \
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_wwdt.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_interrupt.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h:
+../src/scheduler.h:

@@ -1,7 +1,47 @@
+/*
+* Copyright (c) 2023, Texas Instruments Incorporated - http://www.ti.com
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions
+* are met:
+*
+* *  Redistributions of source code must retain the above copyright
+*    notice, this list of conditions and the following disclaimer.
+*
+* *  Redistributions in binary form must reproduce the above copyright
+*    notice, this list of conditions and the following disclaimer in the
+*    documentation and/or other materials provided with the distribution.
+*
+* *  Neither the name of Texas Instruments Incorporated nor the names of
+*    its contributors may be used to endorse or promote products derived
+*    from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+* AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+* THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+* PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+* CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+* EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+* PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+* OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+* WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+* OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+* EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+/*
+*  ============ ti_msp_dl_config.h =============
+*  Configured MSPM0 DriverLib module declarations
+*
+*  DO NOT EDIT - This file is generated for the MSPM0L130X
+*  by the SysConfig tool.
+*/
 #ifndef ti_msp_dl_config_h
 #define ti_msp_dl_config_h
 
 #define CONFIG_MSPM0L130X
+#define CONFIG_MSPM0L1306
 
 #if defined(__ti_version__) || defined(__TI_COMPILER_VERSION__)
 #define SYSCONFIG_WEAK __attribute__((weak))
@@ -20,12 +60,12 @@ extern "C" {
 #endif
 
 /*
- *  ======== SYSCFG_DL_init ========
- *  Perform all required MSP DL initialization
- *
- *  This function should be called once at a point before any use of
- *  MSP DL.
- */
+*  ======== SYSCFG_DL_init ========
+*  Perform all required MSP DL initialization
+*
+*  This function should be called once at a point before any use of
+*  MSP DL.
+*/
 
 
 /* clang-format off */
@@ -37,45 +77,46 @@ extern "C" {
 
 
 
-/* Defines for SYSTICK */
-#define SYSTICK_INST                                                     (TIMG1)
-#define SYSTICK_INST_IRQHandler                                 TIMG1_IRQHandler
-#define SYSTICK_INST_INT_IRQN                                   (TIMG1_INT_IRQn)
-#define SYSTICK_INST_LOAD_VALUE                                             (0U)
-/* Defines for PERMTICK */
-#define PERMTICK_INST                                                    (TIMG0)
-#define PERMTICK_INST_IRQHandler                                TIMG0_IRQHandler
-#define PERMTICK_INST_INT_IRQN                                  (TIMG0_INT_IRQn)
-#define PERMTICK_INST_LOAD_VALUE                                        (32767U)
+
+/* Defines for ADC12_0 */
+#define ADC12_0_INST                                                        ADC0
+#define ADC12_0_INST_IRQHandler                                  ADC0_IRQHandler
+#define ADC12_0_INST_INT_IRQN                                    (ADC0_INT_IRQn)
+#define ADC12_0_ADCMEM_0                                      DL_ADC12_MEM_IDX_0
+#define ADC12_0_ADCMEM_0_REF                   DL_ADC12_REFERENCE_VOLTAGE_INTREF
+#define ADC12_0_ADCMEM_0_REF_VOLTAGE_V                                      2.50
+#define GPIO_ADC12_0_C8_PORT                                               GPIOA
+#define GPIO_ADC12_0_C8_PIN                                       DL_GPIO_PIN_16
 
 
-
-/* Defines for UART_0 */
-#define UART_0_INST                                                        UART0
-#define UART_0_INST_IRQHandler                                  UART0_IRQHandler
-#define UART_0_INST_INT_IRQN                                      UART0_INT_IRQn
-#define GPIO_UART_0_RX_PORT                                                GPIOA
-#define GPIO_UART_0_TX_PORT                                                GPIOA
-#define GPIO_UART_0_RX_PIN                                        DL_GPIO_PIN_18
-#define GPIO_UART_0_TX_PIN                                        DL_GPIO_PIN_17
-#define GPIO_UART_0_IOMUX_RX                                     (IOMUX_PINCM19)
-#define GPIO_UART_0_IOMUX_TX                                     (IOMUX_PINCM18)
-#define GPIO_UART_0_IOMUX_RX_FUNC                      IOMUX_PINCM19_PF_UART0_RX
-#define GPIO_UART_0_IOMUX_TX_FUNC                      IOMUX_PINCM18_PF_UART0_TX
-#define UART_0_BAUD_RATE                                                  (9600)
-#define UART_0_IBRD_32_MHZ_9600_BAUD                                       (208)
-#define UART_0_FBRD_32_MHZ_9600_BAUD                                        (21)
+/* Defines for VREF */
+#define VREF_VOLTAGE_MV                                                     2500
+#define VREF_READY_DELAY                                                   (320)
 
 
 
 
+/* Port definition for Pin Group IN */
+#define IN_PORT                                                          (GPIOA)
 
-/* Port definition for Pin Group LED */
-#define LED_PORT                                                         (GPIOA)
+/* Defines for MODE: GPIOA.2 with pinCMx 3 on package pin 6 */
+#define IN_MODE_PIN                                              (DL_GPIO_PIN_2)
+#define IN_MODE_IOMUX                                             (IOMUX_PINCM3)
+/* Port definition for Pin Group OUT */
+#define OUT_PORT                                                         (GPIOA)
 
-/* Defines for PIN_0: GPIOA.0 with pinCMx 1 on package pin 1 */
-#define LED_PIN_0_PIN                                            (DL_GPIO_PIN_0)
-#define LED_PIN_0_IOMUX                                           (IOMUX_PINCM1)
+/* Defines for LDO: GPIOA.6 with pinCMx 7 on package pin 10 */
+#define OUT_LDO_PIN                                              (DL_GPIO_PIN_6)
+#define OUT_LDO_IOMUX                                             (IOMUX_PINCM7)
+/* Defines for ENOP: GPIOA.7 with pinCMx 8 on package pin 11 */
+#define OUT_ENOP_PIN                                             (DL_GPIO_PIN_7)
+#define OUT_ENOP_IOMUX                                            (IOMUX_PINCM8)
+/* Defines for LED_BAT: GPIOA.1 with pinCMx 2 on package pin 2 */
+#define OUT_LED_BAT_PIN                                          (DL_GPIO_PIN_1)
+#define OUT_LED_BAT_IOMUX                                         (IOMUX_PINCM2)
+/* Defines for LED_OP1: GPIOA.0 with pinCMx 1 on package pin 1 */
+#define OUT_LED_OP1_PIN                                          (DL_GPIO_PIN_0)
+#define OUT_LED_OP1_IOMUX                                         (IOMUX_PINCM1)
 
 /* clang-format on */
 
@@ -83,9 +124,8 @@ void SYSCFG_DL_init(void);
 void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
-void SYSCFG_DL_SYSTICK_init(void);
-void SYSCFG_DL_PERMTICK_init(void);
-void SYSCFG_DL_UART_0_init(void);
+void SYSCFG_DL_ADC12_0_init(void);
+void SYSCFG_DL_VREF_init(void);
 
 
 

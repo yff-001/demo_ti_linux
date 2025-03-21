@@ -2,6 +2,7 @@
 
 #include "ti_msp_dl_config.h"
 
+#include "driver/adc.h"
 #include "driver/gpio.h"
 #include "driver/timer.h"
 #include "driver/uart.h"
@@ -11,8 +12,11 @@ static enum power_mode_t current_power_mode;
 
 void scheduler_init() {
     gpio_init();                                // in addition to what is done in ti_msp_dl_config.c
+    adc_init();
     timer_init();
     // uart_init();                                // now called by comm. init
+
+    adc_convert();
 
     communication_init();
 
@@ -21,18 +25,18 @@ void scheduler_init() {
 
 void scheduler_high_power() {
     while (current_power_mode == HIGH_POWER) {
-        while (has_permtick_elapsed() == 0 && has_systick_elapsed()) {
-            __WFI();
-        }
+        // while (has_permtick_elapsed() == 0 && has_systick_elapsed()) {
+        //     __WFI();
+        // }
 
-        if (has_permtick_elapsed() == 1) {
-            permtick_count();
-            gpio_toggle();
-        }
+        // if (has_permtick_elapsed() == 1) {
+        //     permtick_count();
+        //     gpio_toggle();
+        // }
 
-        if (has_systick_elapsed() == 1) {
-            //
-        }
+        // if (has_systick_elapsed() == 1) {
+        //     //
+        // }
     }
 }
 

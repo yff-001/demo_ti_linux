@@ -1,5 +1,5 @@
-obj/scheduler.o: ../src/scheduler.c ../src/scheduler.h \
- ../src/ti_msp_dl_config.h \
+obj/driver/adc.o: ../src/driver/adc.c ../src/driver/adc.h \
+ ../src/driver/../ti_msp_dl_config.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/msp.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/DeviceFamily.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/m0p/mspm0l130x.h \
@@ -68,11 +68,9 @@ obj/scheduler.o: ../src/scheduler.c ../src/scheduler.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_vref.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_wwdt.h \
  /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_interrupt.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h \
- ../src/driver/adc.h ../src/driver/gpio.h ../src/driver/timer.h \
- ../src/driver/uart.h ../src/handler/communication.h
-../src/scheduler.h:
-../src/ti_msp_dl_config.h:
+ /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h
+../src/driver/adc.h:
+../src/driver/../ti_msp_dl_config.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/msp.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/DeviceFamily.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/m0p/mspm0l130x.h:
@@ -142,8 +140,3 @@ obj/scheduler.o: ../src/scheduler.c ../src/scheduler.h \
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_wwdt.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_interrupt.h:
 /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h:
-../src/driver/adc.h:
-../src/driver/gpio.h:
-../src/driver/timer.h:
-../src/driver/uart.h:
-../src/handler/communication.h:

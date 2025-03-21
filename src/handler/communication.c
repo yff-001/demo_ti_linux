@@ -19,7 +19,7 @@ static uint8_t cache = 0;
 static void uart_callback(uint8_t data);
 
 void communication_init() {
-    uart_init(&uart_callback);
+    // uart_init(&uart_callback);
 }
 
 static void uart_callback(uint8_t data) {
