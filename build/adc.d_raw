@@ -1,142 +1,144 @@
 obj/driver/adc.o: ../src/driver/adc.c ../src/driver/adc.h \
  ../src/driver/../ti_msp_dl_config.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/msp.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/DeviceFamily.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/m0p/mspm0l130x.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/core_cm0plus.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/cmsis_version.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/cmsis_compiler.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/cmsis_gcc.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_adc12.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_comp.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_crc.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_dma.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_flashctl.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_gpio.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_gptimer.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_i2c.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_iomux.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_oa.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_spi.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_uart.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_vref.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_wuc.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_wwdt.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_factoryregion.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_cpuss.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_debugss.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_sysctl.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/sysctl/hw_sysctl_mspm0l11xx_l13xx.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/driverlib.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_adc12.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_common.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_aes.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_aesadv.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_comp.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_crc.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_crcp.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_dac12.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_dma.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_flashctl.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_factoryregion.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_core.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_sysctl.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0l11xx_l13xx.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_gpamp.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_gpio.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_i2c.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_iwdt.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_lfss.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_keystorectl.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_lcd.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_mathacl.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_mcan.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_opa.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_rtc.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_rtc_common.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_rtc_a.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_scratchpad.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_spi.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_tamperio.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_timera.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_timer.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_timerg.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_trng.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_uart_extend.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_uart.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_uart_main.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_vref.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_wwdt.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_interrupt.h \
- /home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/msp.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/DeviceFamily.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/m0p/mspm0l130x.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/core_cm0plus.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/cmsis_version.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/cmsis_compiler.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/cmsis_gcc.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_adc12.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_comp.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_crc.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_dma.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_flashctl.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_gpio.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_gptimer.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_i2c.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_iomux.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_oa.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_spi.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_uart.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_vref.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_wuc.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_wwdt.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_factoryregion.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_cpuss.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_debugss.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_sysctl.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/sysctl/hw_sysctl_mspm0l11xx_l13xx.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/driverlib.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_adc12.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_common.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_factoryregion.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_core.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_aes.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_aesadv.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_comp.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_crc.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_crcp.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_dac12.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_dma.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_flashctl.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_sysctl.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0l11xx_l13xx.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_gpamp.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_gpio.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_i2c.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_iwdt.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_lfss.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_keystorectl.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_lcd.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_mathacl.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_mcan.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_opa.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc_common.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc_a.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc_b.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_scratchpad.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_spi.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_tamperio.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_timera.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_timer.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_timerg.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_trng.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_uart_extend.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_uart.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_uart_main.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_vref.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_wwdt.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_interrupt.h \
+ /home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_systick.h
 ../src/driver/adc.h:
 ../src/driver/../ti_msp_dl_config.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/msp.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/DeviceFamily.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/m0p/mspm0l130x.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/core_cm0plus.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/cmsis_version.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/cmsis_compiler.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include/cmsis_gcc.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_adc12.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_comp.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_crc.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_dma.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_flashctl.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_gpio.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_gptimer.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_i2c.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_iomux.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_oa.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_spi.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_uart.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_vref.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_wuc.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/hw_wwdt.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_factoryregion.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_cpuss.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_debugss.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/hw_sysctl.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/devices/msp/peripherals/m0p/sysctl/hw_sysctl_mspm0l11xx_l13xx.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/driverlib.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_adc12.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_common.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_aes.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_aesadv.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_comp.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_crc.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_crcp.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_dac12.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_dma.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_flashctl.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_factoryregion.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_core.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_sysctl.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0l11xx_l13xx.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_gpamp.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_gpio.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_i2c.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_iwdt.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_lfss.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_keystorectl.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_lcd.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_mathacl.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_mcan.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_opa.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_rtc.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_rtc_common.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_rtc_a.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_scratchpad.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_spi.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_tamperio.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_timera.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_timer.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_timerg.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_trng.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_uart_extend.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_uart.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_uart_main.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_vref.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/dl_wwdt.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_interrupt.h:
-/home/yff/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/m0p/dl_systick.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/msp.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/DeviceFamily.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/m0p/mspm0l130x.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/core_cm0plus.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/cmsis_version.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/cmsis_compiler.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/third_party/CMSIS/Core/Include/cmsis_gcc.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_adc12.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_comp.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_crc.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_dma.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_flashctl.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_gpio.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_gptimer.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_i2c.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_iomux.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_oa.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_spi.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_uart.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_vref.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_wuc.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/hw_wwdt.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_factoryregion.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_cpuss.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_debugss.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/hw_sysctl.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/devices/msp/peripherals/m0p/sysctl/hw_sysctl_mspm0l11xx_l13xx.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/driverlib.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_adc12.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_common.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_factoryregion.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_core.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_aes.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_aesadv.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_comp.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_crc.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_crcp.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_dac12.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_dma.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_flashctl.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_sysctl.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0l11xx_l13xx.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_gpamp.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_gpio.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_i2c.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_iwdt.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_lfss.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_keystorectl.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_lcd.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_mathacl.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_mcan.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_opa.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc_common.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc_a.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_rtc_b.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_scratchpad.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_spi.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_tamperio.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_timera.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_timer.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_timerg.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_trng.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_uart_extend.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_uart.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_uart_main.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_vref.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/dl_wwdt.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_interrupt.h:
+/home/yff/ti/mspm0_sdk_2_04_00_06/source/ti/driverlib/m0p/dl_systick.h:

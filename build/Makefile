@@ -1,13 +1,14 @@
 CC = arm-none-eabi-gcc
 
 HOME_DIR := $(HOME)
+MSPM0_SDK_PATH = $(HOME_DIR)/ti/mspm0_sdk_2_04_00_06
 DEVICE = -D__MSPM0L1306__
 
 CFLAGS = -mcpu=cortex-m0plus -march=armv6-m -mthumb -mfloat-abi=soft \
 $(DEVICE) \
 -I"$(HOME_DIR)/demo/demo_ti_l1306" \
--I"$(HOME)/ti/mspm0_sdk_2_00_00_03/source/third_party/CMSIS/Core/Include" \
--I"$(HOME)/ti/mspm0_sdk_2_00_00_03/source" \
+-I"$(MSPM0_SDK_PATH)/source/third_party/CMSIS/Core/Include" \
+-I"$(MSPM0_SDK_PATH)/source" \
 -I"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include/newlib-nano" \
 -I"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/include" \
 -O2 \
@@ -21,14 +22,14 @@ LDFLAGS = $(DEVICE) \
 -ffunction-sections \
 -fdata-sections \
 -g -gdwarf-3 -gstrict-dwarf -Wall -mthumb -mfloat-abi=soft -Wl,-Map,"demo_l1306.map" -nostartfiles -static -Wl,--gc-sections \
--L"$(HOME)/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx" \
--L"$(HOME)/ti/mspm0_sdk_2_00_00_03/source" \
+-L"$(MSPM0_SDK_PATH)/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx" \
+-L"$(MSPM0_SDK_PATH)/source" \
 -L"$(HOME)/ti/gcc_arm_none_eabi_9_2_1/arm-none-eabi/lib/thumb/v6-m/nofp" \
 -march=armv6-m -mthumb
 
 ORDERED_OBJS += \
 -Wl,-T"../src/mspm0l1306.lds" \
-"$(HOME)/ti/mspm0_sdk_2_00_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a" \
+"$(MSPM0_SDK_PATH)/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a" \
 -l:driverlib.a \
 -lgcc \
 -lc \
