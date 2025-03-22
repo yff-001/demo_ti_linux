@@ -1,7 +1,6 @@
 #include "uart.h"
-// #include "driver/uart.h"
+
 #include "../ti_msp_dl_config.h"
-#include <sys/_stdint.h>
 
 static volatile uint8_t rx_data = 0;
 static void (*write_buffer)(uint8_t);
@@ -9,7 +8,7 @@ static void (*write_buffer)(uint8_t);
 void uart_init(void(*callback)(uint8_t)) {
     // SYSCFG_DL_UART_0_init();
     // NVIC_EnableIRQ(UART_0_INST_INT_IRQN);
-    // write_buffer = callback;
+    write_buffer = callback;
 }
 
 // static const DL_UART_Main_ClockConfig gUART_0ClockConfig = {
