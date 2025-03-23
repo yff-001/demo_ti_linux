@@ -34,8 +34,8 @@ ORDERED_OBJS += \
 -lnosys \
 
 BIN_DIR = ./build
-SRC_DIR = ./src
 OBJ_DIR = ./build
+SRC_DIR = ./src
 
 SRC = $(shell find $(SRC_DIR) -name *.c)
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
@@ -60,6 +60,9 @@ RELEASE_FLAGS = -O2 -flto
 # Default target (debug build)
 .DEFAULT_GOAL := debug
 
+# Ensure build directories exist
+$(shell mkdir -p $(BIN_DIR) $(OBJ_DIR))
+
 # Build Debug version
 debug: CFLAGS += $(DEBUG_FLAGS)
 debug: $(TARGET_DEBUG)
@@ -69,11 +72,13 @@ release: CFLAGS += $(RELEASE_FLAGS)
 release: $(TARGET_RELEASE)
 
 $(TARGET_DEBUG): $(OBJ)
+	@mkdir -p $(BIN_DIR)
 	$(CC) $(LDFLAGS) -o $@ $^ $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 $(TARGET_RELEASE): $(OBJ)
+	@mkdir -p $(BIN_DIR)
 	$(CC) $(LDFLAGS) -o $@ $^ $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
@@ -83,9 +88,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo 'Finished building: $<'
 	@echo ' '
-
-# size: $(TARGET)
-# 	arm-none-eabi-size $(TARGET)
 
 size: $(TARGET_DEBUG) $(TARGET_RELEASE)
 	@echo "Memory usage for $(TARGET_DEBUG):"
@@ -111,4 +113,5 @@ clean:
 	@rm -rf $(OBJ_DIR)/*
 	@rm -f ./*.d_raw
 	@rm -f ./*.map
+	@mkdir -p $(BIN_DIR) $(OBJ_DIR)  # Recreate build directory after clean
 	@echo "Clean complete."
