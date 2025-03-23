@@ -3,7 +3,7 @@
 #include "../ti_msp_dl_config.h"
 
 volatile bool gCheckADC = false;
-volatile uint16_t x;
+volatile uint16_t ADCResult[4];
 
 void adc_init() {
   NVIC_EnableIRQ(ADC12_0_INST_INT_IRQN);
@@ -19,7 +19,10 @@ void adc_convert() {
 
     gCheckADC = false;
 
-    x = DL_ADC12_getMemResult(ADC12_0_INST, DL_ADC12_MEM_IDX_0);
+    ADCResult[0] = DL_ADC12_getMemResult(ADC12_0_INST, DL_ADC12_MEM_IDX_0);
+    ADCResult[1] = DL_ADC12_getMemResult(ADC12_0_INST, DL_ADC12_MEM_IDX_1);
+    ADCResult[2] = DL_ADC12_getMemResult(ADC12_0_INST, DL_ADC12_MEM_IDX_2);
+    ADCResult[3] = DL_ADC12_getMemResult(ADC12_0_INST, DL_ADC12_MEM_IDX_3);
 
     DL_ADC12_enableConversions(ADC12_0_INST);
   }
@@ -37,7 +40,7 @@ void adc_convert() {
 void ADC12_0_INST_IRQHandler(void)
 {
   switch (DL_ADC12_getPendingInterrupt(ADC12_0_INST)) {
-    case DL_ADC12_IIDX_MEM0_RESULT_LOADED:
+    case DL_ADC12_IIDX_MEM3_RESULT_LOADED:
       gCheckADC = true;
 
       /*

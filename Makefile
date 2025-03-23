@@ -1,7 +1,7 @@
 CC = arm-none-eabi-gcc
 
 HOME_DIR := $(HOME)
-MSPM0_SDK_PATH = $(HOME_DIR)/ti/mspm0_sdk_2_04_00_06
+MSPM0_SDK_PATH = $(HOME_DIR)/ti/mspm0_sdk
 DEVICE = -D__MSPM0L1306__
 
 # Compiler Flags (default to debug)
