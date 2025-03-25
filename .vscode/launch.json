@@ -6,7 +6,7 @@
   "configurations": [
   {
     "cwd": "${workspaceRoot}",
-    "executable": "./build/app_debug.out",
+    "executable": "./build/debug/app_debug.out",
     "gdbPath": "/usr/bin/gdb-multiarch",
     "name": "Debug with OpenOCD",
     "request": "launch",
