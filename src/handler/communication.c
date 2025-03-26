@@ -1,7 +1,15 @@
 #include "communication.h"
+
+// #include "../driver/uart.h"
+
+// #include "../ti_msp_dl_config.h"
+
+#ifndef UNIT_TEST
 #include "../driver/uart.h"
-#include <sys/_stdint.h>
 #include "../ti_msp_dl_config.h"
+#endif
+
+#include <stdint.h>
 
 #define START_BYTE  0x55
 
