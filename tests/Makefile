@@ -6,40 +6,47 @@ SRC_DIR = ../src
 UNITY_DIR = ../lib/unity
 BUILD_DIR = ./build
 
-# Ensure build directory exists
-$(shell mkdir -p $(BUILD_DIR))
+# Ensure build directory exists before compiling
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
-# Find all test files
-TESTS = $(wildcard *.c)
-TEST_OBJS = $(patsubst %.c, $(BUILD_DIR)/%.o, $(TESTS))
+# Find all test files (those prefixed with "test_")
+TESTS = $(wildcard test_*.c)
+TEST_BINS = $(patsubst %.c, $(BUILD_DIR)/%, $(TESTS))
 
-# Source files to test (exclude embedded-only files)
-SRC_OBJS = $(BUILD_DIR)/communication.o
+# Explicitly list source files needed for unit tests
+SRC_FILES = ../src/handler/communication.c ../src/event_queue.c
+SRC_OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
 # Unity framework source
 UNITY_SRC = $(UNITY_DIR)/unity.c
+UNITY_OBJ = $(BUILD_DIR)/unity.o
 
 # Compiler flags
-CFLAGS = -I$(SRC_DIR) -I$(UNITY_DIR) -std=c99 -Wall -Wextra -DUNIT_TEST
+CFLAGS = -I$(SRC_DIR) -I$(UNITY_DIR) -std=c99 -Wall -Wextra -DUNIT_TEST -g
 
-# Test binary
-TEST_BIN = $(BUILD_DIR)/test_runner
+# Default rule: build all tests
+all: $(TEST_BINS)
 
-# Default rule to build and run tests
-all: $(TEST_BIN)
+# Run all tests
+test: $(TEST_BINS)
 	@echo "Running unit tests..."
-	@./$(TEST_BIN)
+	@for test in $(TEST_BINS); do \
+		echo "Running $$test..."; \
+		$$test || exit 1; \
+	done
 
-# Build test executable
-$(TEST_BIN): $(TEST_OBJS) $(SRC_OBJS) $(UNITY_SRC)
-	$(CC) $(CFLAGS) $^ -o $@
+# Build individual test executables
+$(BUILD_DIR)/%: %.c $(UNITY_OBJ) $(SRC_OBJS) | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $< $(UNITY_OBJ) $(SRC_OBJS) -o $@
 
-# Compile test files
-$(BUILD_DIR)/%.o: %.c
+# Compile Unity
+$(UNITY_OBJ): $(UNITY_SRC) | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Compile source files for unit testing (without MCU-specific includes)
-$(BUILD_DIR)/communication.o: $(SRC_DIR)/handler/communication.c
+# Compile source files needed for unit tests
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean build artifacts
