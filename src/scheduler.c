@@ -6,7 +6,10 @@
 #include "driver/gpio.h"
 #include "driver/timer.h"
 #include "driver/uart.h"
+
 #include "handler/communication.h"
+
+#include "event_queue.h"
 
 static enum power_mode_t current_power_mode;
 
